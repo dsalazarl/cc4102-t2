@@ -1,6 +1,22 @@
+import data.Graph;
+import data.Pair;
+
+import java.util.ArrayList;
+
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println("Holanda, qué Talca!");
+    public static void main(String[] args)
+    {
+
+        // grafo
+        Graph grafoTest = new Graph(20);
+
+        // inicializar
+        for (int i = 0; i < 19; i++)
+        {
+            grafoTest.addEdge(i, i + 1, 1.0 / i);
+        }
+
+        System.out.print(grafoTest);
     }
 }

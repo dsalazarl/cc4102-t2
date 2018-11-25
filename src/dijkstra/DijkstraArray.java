@@ -4,12 +4,14 @@ import data.Graph;
 
 public class DijkstraArray extends AbstractDijkstra {
 
-    public DijkstraArray(Graph graph) {
+    public DijkstraArray(Graph graph)
+    {
         super(graph);
     }
 
     @Override
-    public float shortestPath() {
+    public double shortestPath()
+    {
         return 0;
     }
 }

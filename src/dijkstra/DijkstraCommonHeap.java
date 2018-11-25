@@ -9,7 +9,7 @@ public class DijkstraCommonHeap extends AbstractDijkstra {
     }
 
     @Override
-    public float shortestPath() {
+    public double shortestPath() {
         return 0;
     }
 }

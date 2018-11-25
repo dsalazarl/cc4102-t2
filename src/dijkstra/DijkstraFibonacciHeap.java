@@ -9,7 +9,7 @@ public class DijkstraFibonacciHeap extends AbstractDijkstra {
     }
 
     @Override
-    public float shortestPath() {
+    public double shortestPath() {
         return 0;
     }
 }
