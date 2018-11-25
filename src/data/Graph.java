@@ -54,9 +54,15 @@ public class Graph
             for (int j = 0; j < nodoI.size(); j++)
             {
 
-                System.out.print("Hacia el nodo: "+nodoI.get(j).getFirst());
+                System.out.print("   Hacia el nodo: "+nodoI.get(j).getFirst());
                 System.out.println(" Con peso: "+nodoI.get(j).getSecond());
             }
         }
+    }
+
+    // DEVUELVE LA LISTA DE ARISTAS (pairs) A LAS QUE EL NODO "node" puede llegar
+    public ArrayList<Pair<Integer, Double>> getEdges(int node)
+    {
+        return this.graph.get(node);
     }
 }
