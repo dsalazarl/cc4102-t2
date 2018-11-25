@@ -17,6 +17,6 @@ public class Main {
             grafoTest.addEdge(i, i + 1, 1.0 / i);
         }
 
-        System.out.print(grafoTest);
+        grafoTest.graphOut();
     }
 }
