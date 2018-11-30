@@ -2,6 +2,8 @@ package dijkstra;
 
 import data.Graph;
 
+import java.util.ArrayList;
+
 public class DijkstraFibonacciHeap extends AbstractDijkstra {
 
     public DijkstraFibonacciHeap(Graph graph) {
@@ -9,7 +11,8 @@ public class DijkstraFibonacciHeap extends AbstractDijkstra {
     }
 
     @Override
-    public double shortestPath() {
-        return 0;
+    public ArrayList<Double> shortestPath(int s) {
+        return null;
     }
+
 }

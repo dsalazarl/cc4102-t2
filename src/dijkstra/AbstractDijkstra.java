@@ -1,6 +1,6 @@
 package dijkstra;
-
 import data.Graph;
+import java.util.ArrayList;
 
 public abstract class AbstractDijkstra {
 
@@ -11,5 +11,14 @@ public abstract class AbstractDijkstra {
         this.graph = graph;
     }
 
-    public abstract double shortestPath();
+    /**
+     * Toma un vertice de nuestro grafo y devuelve la distancia minima
+     * hacia los demas nodos del grafo
+     * @param s: indica el nodo de partida
+     * @return lista de distancias
+     */
+    public abstract ArrayList<Double> shortestPath(int s);
+    {
+
+    }
 }
