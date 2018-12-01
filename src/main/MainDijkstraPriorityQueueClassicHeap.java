@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class MainDijkstraPriorityQueueClassicHeap {
     public static void main(String[] args) {
-        // Ejemplo de polimorfismo sobre PrioriQueue
+        // Polimorfismo sobre PriorityQueue
         Graph dummyGraph = new Graph();
         PriorityQueue queue = new PQClassicHeap();
         DijkstraPriorityQueue dpq = new DijkstraPriorityQueue(dummyGraph, queue);
