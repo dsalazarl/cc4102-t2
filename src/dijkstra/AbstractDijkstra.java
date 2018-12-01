@@ -1,5 +1,5 @@
 package dijkstra;
-import data.Graph;
+import data.graph.Graph;
 import java.util.ArrayList;
 
 public abstract class AbstractDijkstra {
@@ -18,9 +18,6 @@ public abstract class AbstractDijkstra {
      * @return lista de distancias
      */
     public abstract ArrayList<Double> shortestPath(int s);
-    {
-
-    }
 
     public int nodesNum()
     {

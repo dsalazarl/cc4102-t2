@@ -1,4 +1,4 @@
-package data;
+package data.graph;
 
 public class GraphGenerator {
 

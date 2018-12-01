@@ -1,11 +1,9 @@
 package dijkstra;
 
-import data.Graph;
+import data.graph.Graph;
 import java.util.ArrayList;
 
 public class DijkstraArray extends AbstractDijkstra {
-
-
     public DijkstraArray(Graph graph)
     {
         super(graph);
@@ -13,7 +11,6 @@ public class DijkstraArray extends AbstractDijkstra {
 
     @Override
     public ArrayList<Double> shortestPath(int s) {
-
         // nuestro infinito
         double inf = Double.POSITIVE_INFINITY;
         // nuestro arreglo de distancias desde 's' hasta todos los nodos
@@ -47,13 +44,11 @@ public class DijkstraArray extends AbstractDijkstra {
                     minNode = j;
                 }
             }
-            // Ahora visitamos a minNode
-            // y lo marcamos como visitado
+            // Ahora visitamos a minNode y lo marcamos como visitado
             visited.set(minNode, true);
             // iteramos sobre los vecinos de nuestro minNode
             for(int k = 0; k < this.graph.getEdges(minNode).size(); k++)
             {
-
                 //vecino actual
                 int neighbour = this.graph.getEdges(minNode).get(k).getFirst();
                 // peso de ir desde minNode hasta el vecino
@@ -64,7 +59,6 @@ public class DijkstraArray extends AbstractDijkstra {
                     previous.set(neighbour, minNode);
                 }
             }
-
         }
 
         return minDists;
