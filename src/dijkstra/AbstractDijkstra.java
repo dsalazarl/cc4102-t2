@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class AbstractDijkstra {
 
-    private Graph graph;
+    protected Graph graph;
 
     public AbstractDijkstra(Graph graph)
     {
@@ -20,5 +20,10 @@ public abstract class AbstractDijkstra {
     public abstract ArrayList<Double> shortestPath(int s);
     {
 
+    }
+
+    public int nodesNum()
+    {
+        return this.graph.nodesNum();
     }
 }

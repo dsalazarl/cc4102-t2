@@ -1,18 +1,19 @@
 import data.Graph;
+import data.GraphGenerator;
+import dijkstra.DijkstraArray;
+
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args)
     {
-        // grafo
-        Graph grafoTest = new Graph(20);
+        Graph grafoide = GraphGenerator.testGraph1();
+        // grafoide.printGraph();
+        DijkstraArray hola = new DijkstraArray(grafoide);
+        ArrayList<Double> resultados = hola.shortestPath(2);
+        System.out.println(resultados.get(0));
 
-        // inicialización
-        for (int i = 0; i < 19; i++)
-        {
-            grafoTest.addEdge(i, i + 1, 1.0 / i);
-        }
-
-        grafoTest.printGraph();
     }
+
 }

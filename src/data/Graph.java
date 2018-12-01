@@ -26,7 +26,7 @@ public class Graph
     /**
      * Constructor de la clase. Inicializa la estructura dejando listas aristas vacías por cada nodo
      * @param numNodes cantidad de nodos que tendrá el grafo. Por simplicidad,
-     *                 las ids de los nodos estarán numeradas de 1 hasta numNodes.
+     *                 las ids de los nodos estarán numeradas de 0 hasta numNodes-1.
      */
     public Graph(int numNodes)
     {
@@ -79,5 +79,10 @@ public class Graph
     public ArrayList<Pair<Integer, Double>> getEdges(int node)
     {
         return this.graph.get(node);
+    }
+
+    public int nodesNum()
+    {
+        return this.graph.size();
     }
 }
