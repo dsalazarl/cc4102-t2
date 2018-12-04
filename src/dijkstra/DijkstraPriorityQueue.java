@@ -22,16 +22,10 @@ public class DijkstraPriorityQueue extends AbstractDijkstra {
 
         for (int i = 0; i < this.graph.nodesNum(); i++)
         {
-            // Si el vertice es el que se indicó como origen
-            if (i == s)
-            {
-                dist.set(i, 0.0);
-            }
-            else
-            {
-                dist.set(i, inf);
-            }
+            dist.add(inf);
         }
+        // Setear a 0 el valor del vértice especificado como origen
+        dist.set(s, 0.0);
 
         // Construir el heap de la cola de prioridad a partir del arreglo de distancias
         this.pq = new PQClassicHeap(dist);

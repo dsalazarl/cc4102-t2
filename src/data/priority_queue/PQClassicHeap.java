@@ -212,10 +212,14 @@ public class PQClassicHeap implements PriorityQueue {
         }
     }
 
+    /**
+     * Revisar si la cola está vacía.
+     * @return true si la cola está vacía, false en caso contrario.
+     */
     @Override
     public boolean isEmpty()
     {
-        return false;
+        return this.minHeap.size() == 0;
     }
 
 
