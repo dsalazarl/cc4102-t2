@@ -1,5 +1,6 @@
 package data.priority_queue;
 
+import data.graph.Graph;
 import data.graph.Pair;
 
 import java.lang.reflect.Array;
@@ -25,14 +26,45 @@ public class PQClassicHeap implements PriorityQueue {
 
     //******* METODOS ********
 
-    // Constructor dado n nodos,
-    // Setea todas sus distancias en infinito
-    // menos la del nodo '0' en 0
+    /**
+     * Constructor básico de la clase. Únicamente setea los valores de sus parámetros,
+     * sin preocuparse de la construcción del heap.
+     * @param n es el tamaño con el que se inicializará el arreglo de prioridades
+     */
     public PQClassicHeap(int n)
     {
         this.heapSize = n;
-        this.posNode = new ArrayList<Integer>();
-        this.minHeap = new ArrayList<Pair<Integer, Double>>();
+        this.posNode = new ArrayList<>();
+        this.minHeap = new ArrayList<>();
+    }
+
+    /**
+     * Constructor que genera una cola de prioridad (implementado con un Heap clásico)
+     * que inicializa los valores en la cola, obtenidos a partir del arreglo de prioridades,
+     * donde el índice del arreglo representa la llave. En esto caso, el vértice del grafo.
+     * @param priorities lista de las prioridades a partir de la cual construir el heap.
+     */
+    public PQClassicHeap(ArrayList priorities)
+    {
+        this(priorities.size());
+        double inf = Double.POSITIVE_INFINITY;
+        for (int i = 0; i < this.heapSize; i++)
+        {
+            this.minHeap.add(new Pair(i, priorities.get(i)));
+        }
+
+        this.buildMinHeap();
+    }
+
+
+    // Constructor dado n nodos,
+    // Setea todas sus distancias en infinito
+    // menos la del nodo '0' en 0
+    public PQClassicHeap(int n, boolean bla)
+    {
+        this.heapSize = n;
+        this.posNode = new ArrayList<>();
+        this.minHeap = new ArrayList<>();
         double inf = Double.POSITIVE_INFINITY;
         // las posiciones estan originales
 
@@ -55,7 +87,12 @@ public class PQClassicHeap implements PriorityQueue {
         return this.minHeap.get(0);
     }
 
-    // extraigo el elemento con mayor prioridad, osea el minimo
+    /**
+     * Sacar de la cola el nodo que tiene mayor prioridad (es decir, menor valor).
+     * El nodo está representado por el Pair<nodeId, nodePriority>.
+     * @return la llave del nodo con mayor prioridad en la cola.
+     */
+    @Override
     public Pair<Integer, Double> extractMin()
     {
         // el minimo
@@ -74,13 +111,16 @@ public class PQClassicHeap implements PriorityQueue {
         return min;
     }
 
-    // nueva distancia para nuestro node
-    // voy a obtener a un nodo vecino y le cambiare
-    // su distancia a key
-    public void decreaseKey(int node, double key)
+    /**
+     * Actualiza la distancia para la llave.
+     * @param key llave del elemento al que se le quiere cambiar la prioridad. En este caso hará referencia al vértice.
+     * @param priority valor de la prioridad a la cual se quiere bajar el valor de la llave.
+     */
+    @Override
+    public void decreaseKey(int key, double priority)
     {
         // donde esta el nodo afectado en nuestro heap
-        int i = this.posNode.get(node);
+        int i = this.posNode.get(key);
         // mientras no soy la raiz y el padre es mayor  que el hijo
         // los tengo que intercambiar
         Pair<Integer, Double> nuevonodo = new Pair(this.minHeap.get(i).getFirst(), key);
@@ -94,7 +134,7 @@ public class PQClassicHeap implements PriorityQueue {
             // y al hijo como el padre
             this.minHeap.set(i, padre);
             // actualizo posicion de cada nodo en el heap
-            this.posNode.set(node, i/2);
+            this.posNode.set(key, i/2);
             this.posNode.set(padre.getFirst(), i);
 
             i /= 2;
@@ -163,7 +203,7 @@ public class PQClassicHeap implements PriorityQueue {
 
     }
 
-    // buildear el min heap
+    // construir el min heap
     public void buildMinHeap()
     {
         for (int i = this.heapSize/2; i <= 0; --i)
@@ -190,11 +230,6 @@ public class PQClassicHeap implements PriorityQueue {
     public void insert(int key, int value)
     {
 
-    }
-
-    @Override
-    public int pullHighestPriority() {
-        return 0;
     }
 
     @Override

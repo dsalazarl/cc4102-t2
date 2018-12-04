@@ -1,5 +1,7 @@
 package data.priority_queue;
 
+import data.graph.Pair;
+
 /**
  * Clase para representar una cola de prioridad implementada mediante un heap de Fibonacci.
  */
@@ -37,13 +39,13 @@ public class PQFibonacciHeap implements PriorityQueue {
     }
 
     /**
-     * Sacar de la cola el elemento que tiene mayor prioridad.
+     * Sacar de la cola el nodo que tiene mayor prioridad.
      *
-     * @return la llave del elemento con mayor prioridad en la cola.
+     * @return la llave del nodo con mayor prioridad en la cola.
      */
     @Override
-    public int pullHighestPriority() {
-        return 0;
+    public Pair<Integer, Double> extractMin() {
+        return null;
     }
 
     /**
@@ -56,5 +58,16 @@ public class PQFibonacciHeap implements PriorityQueue {
     @Override
     public boolean updatePriority(int k, int value) {
         return false;
+    }
+
+    /**
+     * Actualiza la distancia para la llave.
+     *
+     * @param key      llave del elemento al que se le quiere cambiar la prioridad. En este caso hará referencia al vértice.
+     * @param priority valor de la prioridad a la cual se quiere bajar el valor de la llave.
+     */
+    @Override
+    public void decreaseKey(int key, double priority) {
+
     }
 }

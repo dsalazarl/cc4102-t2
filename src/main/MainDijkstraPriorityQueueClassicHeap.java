@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class MainDijkstraPriorityQueueClassicHeap {
     public static void main(String[] args) {
         // Polimorfismo sobre PriorityQueue
-        Graph dummyGraph = new Graph();
-        PriorityQueue queue = new PQClassicHeap(12);
+        Graph dummyGraph = new Graph(); // aquí se ocuparía el nodeGenerator
+        PriorityQueue queue = new PQClassicHeap(dummyGraph.nodesNum());
         DijkstraPriorityQueue dpq = new DijkstraPriorityQueue(dummyGraph, queue);
         ArrayList<Double> minDists = dpq.shortestPath(0);
     }

@@ -1,5 +1,7 @@
 package data.priority_queue;
 
+import data.graph.Pair;
+
 /**
  * Operaciones propias de una cola de prioridad.
  * Se utilizará esta interface para realizar polimorfismo al implementar el algoritmo de Dijkstra.
@@ -9,14 +11,14 @@ public interface PriorityQueue {
      * Revisar si la cola está vacía.
      * @return true si la cola está vacía, false en caso contrario.
      */
-    public boolean isEmpty();
+    boolean isEmpty();
 
     /**
      * Busca un elemento dentro de la cola.
      * @param k llave del elemento a buscar dentro de la cola.
      * @return true si encontró la llave del elemento, false en caso contrario
      */
-    public boolean containsKey(int k);
+    boolean containsKey(int k);
 
     /**
      * Insertar elementos en la cola de prioridad.
@@ -24,13 +26,13 @@ public interface PriorityQueue {
      * @param value el valor de la prioridad que tiene el elemento a insertar.
      *              a menor valor, mayor prioridad tiene.
      */
-    public void insert(int key, int value);
+    void insert(int key, int value);
 
     /**
-     * Sacar de la cola el elemento que tiene mayor prioridad.
-     * @return la llave del elemento con mayor prioridad en la cola.
+     * Sacar de la cola el nodo que tiene mayor prioridad. El nodo está representado por el Pair<nodeId, nodePriority>
+     * @return la llave del nodo con mayor prioridad en la cola.
      */
-    public int pullHighestPriority();
+    Pair<Integer, Double> extractMin();
 
     /**
      * Busca un elemento y si lo encuentra, actualiza el valor de su prioridad dentro de la cola.
@@ -38,6 +40,17 @@ public interface PriorityQueue {
      * @param value el valor de la prioridad del elemento que se desea actualizar.
      * @return true si se pudo actualizar, false en caso contrario.
      */
-    public boolean updatePriority(int k, int value);
+    boolean updatePriority(int k, int value);
+
+    // nueva distancia para nuestro node
+    // voy a obtener a un nodo vecino y le cambiare
+    // su distancia a key
+
+    /**
+     * Actualiza la distancia para la llave.
+     * @param key llave del elemento al que se le quiere cambiar la prioridad. En este caso hará referencia al vértice.
+     * @param priority valor de la prioridad a la cual se quiere bajar el valor de la llave.
+     */
+    void decreaseKey(int key, double priority);
 
 }
