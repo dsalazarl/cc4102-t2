@@ -10,6 +10,7 @@ public class Main {
 
     public static void main(String[] args)
     {
+        System.out.println(Double.POSITIVE_INFINITY == Double.POSITIVE_INFINITY );
         Graph grafoide = GraphGenerator.testGraph1();
         // grafoide.printGraph();
         DijkstraArray hola = new DijkstraArray(grafoide);

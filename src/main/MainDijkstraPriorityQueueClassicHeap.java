@@ -15,7 +15,7 @@ public class MainDijkstraPriorityQueueClassicHeap {
     public static void main(String[] args) {
         // Ejemplo de polimorfismo sobre PrioriQueue
         Graph dummyGraph = new Graph();
-        PriorityQueue queue = new PQClassicHeap();
+        PriorityQueue queue = new PQClassicHeap(12);
         DijkstraPriorityQueue dpq = new DijkstraPriorityQueue(dummyGraph, queue);
         ArrayList<Double> minDists = dpq.shortestPath(0);
     }
