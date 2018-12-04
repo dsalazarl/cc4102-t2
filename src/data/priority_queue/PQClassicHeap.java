@@ -65,7 +65,7 @@ public class PQClassicHeap implements PriorityQueue {
         // cambio la raiz por el ultimo elemento
         this.minHeap.set(0, this.minHeap.get(this.heapSize-1));
         // seteo que el ultimo elemento ahora esta en la raiz
-        this.posNode.set(this.posNode.size()-1,0);
+        this.posNode.set(this.minHeap.get(0).getFirst(),0);
         // le resto uno al largo del heap
         this.heapSize -= 1;
         // mantengo la propiedad
