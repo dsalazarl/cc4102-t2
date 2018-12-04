@@ -9,7 +9,8 @@ import java.util.ArrayList;
 public class DijkstraPriorityQueue extends AbstractDijkstra {
     PriorityQueue pq;
 
-    public DijkstraPriorityQueue(Graph graph, PriorityQueue queue) {
+    public DijkstraPriorityQueue(Graph graph, PriorityQueue queue)
+    {
         super(graph);
         this.pq = queue;
     }
@@ -25,14 +26,17 @@ public class DijkstraPriorityQueue extends AbstractDijkstra {
             dist.add(inf);
         }
         // Setear a 0 el valor del vértice especificado como origen
-        dist.set(s, 0.0);
+        dist.set(s, 0.0d);
 
         // Construir el heap de la cola de prioridad a partir del arreglo de distancias
         this.pq = new PQClassicHeap(dist);
 
+
         while (!pq.isEmpty())
         {
+
             int minNode = pq.extractMin().getFirst();
+
 
             // iteramos sobre los vecinos de nuestro minNode
             for(int k = 0; k < this.graph.getEdges(minNode).size(); k++)

@@ -47,7 +47,8 @@ public class PQClassicHeap implements PriorityQueue {
     public PQClassicHeap(ArrayList priorities)
     {
         this(priorities.size());
-        for (int i = 0; i < this.heapSize; i++)
+        this.minHeap.add(new Pair(0, 0));
+        for (int i = 1; i < this.heapSize; i++)
         {
             this.minHeap.add(new Pair(i, priorities.get(i)));
             posNode.add(i);
@@ -68,7 +69,8 @@ public class PQClassicHeap implements PriorityQueue {
         double inf = Double.POSITIVE_INFINITY;
         // las posiciones estan originales
 
-        this.minHeap.add(0, new Pair(0, 0));
+        this.minHeap.add(0, new Pair(0, 0d));
+        this.posNode.add(0, 0);
 
         for (int i = 1; i < n; i++)
         {
@@ -210,6 +212,12 @@ public class PQClassicHeap implements PriorityQueue {
         {
             this.minHeapifiy(i);
         }
+    }
+
+    public void printProp()
+    {
+        System.out.println("Largo minheap: " + this.minHeap.size());
+        System.out.println("Largo heapsize: " + this.heapSize);
     }
 
     /**
