@@ -70,6 +70,7 @@ public class PQClassicHeap implements PriorityQueue {
         this.heapSize -= 1;
         // mantengo la propiedad
         this.minHeapifiy(0);
+
         return min;
     }
 
@@ -82,6 +83,8 @@ public class PQClassicHeap implements PriorityQueue {
         int i = this.posNode.get(node);
         // mientras no soy la raiz y el padre es mayor  que el hijo
         // los tengo que intercambiar
+        Pair<Integer, Double> nuevonodo = new Pair(this.minHeap.get(i).getFirst(), key);
+        this.minHeap.set(i, nuevonodo);
         while (i > 0 && this.minHeap.get(i/2).getSecond() > this.minHeap.get(i).getSecond())
         {
             // guardamos al padre
