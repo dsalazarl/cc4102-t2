@@ -206,7 +206,7 @@ public class PQClassicHeap implements PriorityQueue {
     // construir el min heap
     public void buildMinHeap()
     {
-        for (int i = this.heapSize/2; i <= 0; --i)
+        for (int i = this.heapSize/2; i >= 0; --i)
         {
             this.minHeapifiy(i);
         }
