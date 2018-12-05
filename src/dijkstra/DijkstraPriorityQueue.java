@@ -24,6 +24,7 @@ public class DijkstraPriorityQueue extends AbstractDijkstra {
         for (int i = 0; i < this.graph.nodesNum(); i++)
         {
             dist.add(inf);
+            previous.add(-1);
         }
         // Setear a 0 el valor del vértice especificado como origen
         dist.set(s, 0.0d);
