@@ -47,8 +47,7 @@ public class PQClassicHeap implements PriorityQueue {
     public PQClassicHeap(ArrayList priorities)
     {
         this(priorities.size());
-        this.minHeap.add(new Pair(0, 0));
-        for (int i = 1; i < this.heapSize; i++)
+        for (int i = 0; i < this.heapSize; i++)
         {
             this.minHeap.add(new Pair(i, priorities.get(i)));
             posNode.add(i);
