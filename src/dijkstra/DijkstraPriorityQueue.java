@@ -51,7 +51,7 @@ public class DijkstraPriorityQueue extends AbstractDijkstra {
                 {
                     dist.set(neighbour, dist.get(minNode) + weight);
                     previous.set(neighbour, minNode);
-                    pq.decreaseKey(minNode, newDist);
+                    pq.decreaseKey(neighbour, newDist);
                 }
             }
         }
