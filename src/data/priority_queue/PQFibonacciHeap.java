@@ -70,4 +70,8 @@ public class PQFibonacciHeap implements PriorityQueue {
     public void decreaseKey(int key, double priority) {
 
     }
+
+    public void printProp(){
+
+    }
 }

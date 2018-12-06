@@ -53,4 +53,5 @@ public interface PriorityQueue {
      */
     void decreaseKey(int key, double priority);
 
+    void printProp();
 }

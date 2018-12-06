@@ -37,8 +37,6 @@ public class DijkstraPriorityQueue extends AbstractDijkstra {
         {
 
             int minNode = pq.extractMin().getFirst();
-
-
             // iteramos sobre los vecinos de nuestro minNode
             for(int k = 0; k < this.graph.getEdges(minNode).size(); k++)
             {

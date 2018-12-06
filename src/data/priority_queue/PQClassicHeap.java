@@ -226,7 +226,7 @@ public class PQClassicHeap implements PriorityQueue {
     @Override
     public boolean isEmpty()
     {
-        return this.minHeap.size() == 0;
+        return this.heapSize == 0;
     }
 
 
