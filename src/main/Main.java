@@ -10,7 +10,8 @@ public class Main {
 
     public static void main(String[] args)
     {
-
+        Graph hola = GraphGenerator.nGraph(3, 10);
+        hola.printGraph();
     }
 
 }

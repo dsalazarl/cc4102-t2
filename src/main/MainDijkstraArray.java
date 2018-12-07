@@ -13,10 +13,10 @@ import java.util.ArrayList;
 public class MainDijkstraArray {
     public static void main(String[] args)
     {
-        Graph grafoide = GraphGenerator.testGraph2();
-        // grafoide.printGraph();
+        Graph grafoide = GraphGenerator.nGraph(4, 4);
+        grafoide.printGraph();
         DijkstraArray hola = new DijkstraArray(grafoide);
         ArrayList<Double> resultados = hola.shortestPath(0);
-        System.out.println(resultados.get(9));
+        System.out.println(resultados.get(3));
     }
 }
