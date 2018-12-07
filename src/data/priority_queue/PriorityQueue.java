@@ -42,10 +42,6 @@ public interface PriorityQueue {
      */
     boolean updatePriority(int k, int value);
 
-    // nueva distancia para nuestro node
-    // voy a obtener a un nodo vecino y le cambiare
-    // su distancia a key
-
     /**
      * Actualiza la distancia para la llave.
      * @param key llave del elemento al que se le quiere cambiar la prioridad. En este caso hará referencia al vértice.
@@ -53,5 +49,9 @@ public interface PriorityQueue {
      */
     void decreaseKey(int key, double priority);
 
+    /**
+     * Imprime en consola el largo del minHeap y su tamaño (size).
+     * Con fines de debugging.
+     */
     void printProp();
 }
