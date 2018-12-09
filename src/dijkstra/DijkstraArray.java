@@ -10,7 +10,7 @@ public class DijkstraArray extends AbstractDijkstra {
     }
 
     @Override
-    public ArrayList<Double> shortestPath(int s) {
+    public ArrayList<Double> shortestPath(int s, Class a) {
         // nuestro infinito
         double inf = Double.POSITIVE_INFINITY;
         // nuestro arreglo de distancias desde 's' hasta todos los nodos

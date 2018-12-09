@@ -2,6 +2,7 @@ package dijkstra;
 
 import data.graph.Graph;
 import data.priority_queue.PQClassicHeap;
+import data.priority_queue.PQFibonacciHeap;
 import data.priority_queue.PriorityQueue;
 
 import java.util.ArrayList;
@@ -15,8 +16,9 @@ public class DijkstraPriorityQueue extends AbstractDijkstra {
         this.pq = queue;
     }
 
+    //PQHeap: Clase de la priority queue
     @Override
-    public ArrayList<Double> shortestPath(int s) {
+    public ArrayList<Double> shortestPath(int s, Class PQHeap) {
         ArrayList<Double> dist = new ArrayList<>();
         ArrayList<Integer> previous = new ArrayList<>();
         double inf = Double.POSITIVE_INFINITY;
@@ -30,7 +32,13 @@ public class DijkstraPriorityQueue extends AbstractDijkstra {
         dist.set(s, 0.0d);
 
         // Construir el heap de la cola de prioridad a partir del arreglo de distancias
-        this.pq = new PQClassicHeap(dist);
+        if (PQHeap.equals(PQClassicHeap.class)){
+            this.pq = new PQClassicHeap(dist);
+
+        }
+        else if (PQHeap.equals(PQFibonacciHeap.class)){
+            this.pq = new PQFibonacciHeap(dist);
+        }
 
 
         while (!pq.isEmpty())

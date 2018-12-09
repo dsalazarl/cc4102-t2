@@ -5,6 +5,7 @@ import data.graph.Pair;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Clase para representar una cola de prioridad implementada mediante un heap clásico.
@@ -97,7 +98,7 @@ public class PQClassicHeap implements PriorityQueue {
     public Pair<Integer, Double> extractMin()
     {
         // el minimo
-        Pair<Integer,Double> min = this.minHeap.get(0);
+        Pair<Integer,Double> min = heapMin();
         // seteo en -1 la posicion en el heap de la raiz que vamos a sacar
         this.posNode.set(min.getFirst(), -1);
         // cambio la raiz por el ultimo elemento

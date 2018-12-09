@@ -18,7 +18,7 @@ public class MainDijkstraPriorityQueueClassicHeap {
         Graph grafoide = GraphGenerator.testGraph2();
         PriorityQueue queue = new PQClassicHeap(grafoide.nodesNum());
         DijkstraPriorityQueue dpq = new DijkstraPriorityQueue(grafoide, queue);
-        ArrayList<Double> minDists = dpq.shortestPath(0);
+        ArrayList<Double> minDists = dpq.shortestPath(0, queue.getClass());
         for(int i=0; i < minDists.size(); i++)
             System.out.println("Distancia mínima entre el nodo 0 y el nodo " + i + " es: " + minDists.get(i));
     }

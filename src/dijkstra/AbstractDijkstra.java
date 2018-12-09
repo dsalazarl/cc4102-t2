@@ -17,7 +17,7 @@ public abstract class AbstractDijkstra {
      * @param s: indica el nodo de partida
      * @return lista de distancias
      */
-    public abstract ArrayList<Double> shortestPath(int s);
+    public abstract ArrayList<Double> shortestPath(int s, Class PQHeapClass);
 
     public int nodesNum()
     {

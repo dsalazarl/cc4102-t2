@@ -16,7 +16,7 @@ public class MainDijkstraArray {
         Graph grafoide = GraphGenerator.nGraph(4, 4);
         grafoide.printGraph();
         DijkstraArray hola = new DijkstraArray(grafoide);
-        ArrayList<Double> resultados = hola.shortestPath(0);
+        ArrayList<Double> resultados = hola.shortestPath(0, hola.getClass());
         System.out.println(resultados.get(3));
     }
 }
