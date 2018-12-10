@@ -1,6 +1,7 @@
 package main;
 
 import data.graph.Graph;
+import data.graph.GraphGenerator;
 import data.priority_queue.PQFibonacciHeap;
 import data.priority_queue.PriorityQueue;
 import dijkstra.DijkstraPriorityQueue;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class MainDijkstraPriorityQueueFibonacciHeap {
     public static void main(String[] args) {
         // Polimorfismo sobre PriorityQueue
-        Graph dummyGraph = new Graph();
+        Graph dummyGraph = GraphGenerator.testGraph2();
         PriorityQueue queue = new PQFibonacciHeap(dummyGraph.nodesNum());
         DijkstraPriorityQueue dpq = new DijkstraPriorityQueue(dummyGraph, queue);
         ArrayList<Double> minDists = dpq.shortestPath(0, queue.getClass());

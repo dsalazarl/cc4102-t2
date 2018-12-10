@@ -69,8 +69,12 @@ public class PQFibonacciHeap implements PriorityQueue {
     public Pair<Integer, Double> extractMin() {
         // el minimo
         NodeHeaps minNode = pqFibonacci.extractMin();
-
-        return minNode.nodeToPair();
+        if (minNode == null){
+            return new Pair<>(0, 0.0);
+        }
+        else{
+            return minNode.nodeToPair();
+        }
     }
 
 

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class PQFibonacciHeap2 {
 
+    public static int MAXDEGREE = 5;
     private ArrayList<NodeHeaps> rootList;
     private ArrayList<NodeHeaps> allNodes;
     private NodeHeaps minNode;
@@ -35,7 +36,7 @@ public class PQFibonacciHeap2 {
         //Guardamos nodo y posicion
         allNodes.add(node.getId(), node);
 
-        if (this.minNode.equals(null)){
+        if (this.minNode == null) {
             this.minNode = node;
             rootList.add(node);
         }
@@ -54,7 +55,7 @@ public class PQFibonacciHeap2 {
     public NodeHeaps extractMin(){
         //busco el minimo
         NodeHeaps minNode = getMinNode();
-        if (!minNode.equals(null)){
+        if (minNode != null){
             //Para cada hijo del minNode
             ArrayList<NodeHeaps> childs = minNode.getChildList();
             for (int i=0; i < minNode.getChildSize(); i++){
@@ -83,15 +84,15 @@ public class PQFibonacciHeap2 {
     private void Consolidate() {
         ArrayList<NodeHeaps> auxRootList = new ArrayList<>();
         //Se inicializa array auxiliar
-        for (int i=0; i < rootList.size(); i++){
-            auxRootList.set(i, null);
+        for (int i=0; i < MAXDEGREE; i++){
+            auxRootList.add(i, null);
         }
 
         //Para cada nodo en rootList
         for (int j=0; j < rootList.size(); j++){
             NodeHeaps nodeRoot = rootList.get(j);
             int d = nodeRoot.getChildSize();
-            while (!auxRootList.get(d).equals(null)){
+            while (auxRootList.get(d) != null){
                 NodeHeaps otherNode = auxRootList.get(d);
                 if (nodeRoot.getKey() > otherNode.getKey()){
                     //cambiamos nodeRoot con otherNode
@@ -106,9 +107,9 @@ public class PQFibonacciHeap2 {
         }
         minNode = null;
         for (int k=0; k < rootList.size() ; k++){
-            if (!auxRootList.get(k).equals(null)){
+            if (auxRootList.get(k) !=  null){
                 NodeHeaps newNode = auxRootList.get(k);
-                if (minNode.equals(null)){
+                if (minNode == null){
                     //Creamos rootlist y agregamos elemento de auxRoot
                     rootList.clear();
                     rootList.add(newNode);
@@ -145,7 +146,7 @@ public class PQFibonacciHeap2 {
         node.setKey(key);
         NodeHeaps y = node.getParent();
 
-        if (!y.equals(null) && node.getKey() < y.getKey()){
+        if (y != null && node.getKey() < y.getKey()){
             Cut(node, y);
             CascadingCut(y);
         }
@@ -170,8 +171,8 @@ public class PQFibonacciHeap2 {
      */
     public void CascadingCut(NodeHeaps y){
         NodeHeaps z = y.getParent();
-        if (!z.equals(null)){
-            if (y.isMarkeD() == false){
+        if (z != null){
+            if (!y.isMarkeD()){
                 y.setMarkeD(true);
             }
             else{

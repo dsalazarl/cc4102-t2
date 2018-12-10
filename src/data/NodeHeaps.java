@@ -51,8 +51,7 @@ public class NodeHeaps {
     }
 
     public Pair<Integer, Double> nodeToPair() {
-        Pair<Integer, Double> newPair = new Pair<>(this.id, this.getKey());
-        return newPair;
+        return new Pair<>(this.id, this.getKey());
     }
 
     public void setNodeKey(int nodeKey) {
