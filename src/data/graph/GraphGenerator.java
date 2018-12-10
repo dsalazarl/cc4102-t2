@@ -46,24 +46,32 @@ public class GraphGenerator {
 
     public static Graph nGraph(int nodes, int edges)
     {
+        // generalmente 100.000 nodos, del 0 hata el 99.999
         Graph sasha = new Graph(nodes);
 
+        // primeras 99.999 aristas para asegurar conectividad
+        // del primer nodo a todos los demas
         for (int i = 0; i < nodes-1; i++)
         {
             sasha.addEdge(i, i+1, Math.random());
         }
 
+        // ahora recibiremos 10*nodes, 100*nodes o 1000*nodes edges
+        // y añadiremos todas las aristas "extra"
         for (int j = 0; j < edges; j++)
         {
-
+            // nodo al azar de inicio
             int nodoInicio = ThreadLocalRandom.current().nextInt(0, nodes);
+            // nod al azar de llegada
             int nodoLlegada =  ThreadLocalRandom.current().nextInt(0, nodes);
 
+            // si los dos nodos son iguales cambio el de llegada
             while(nodoInicio == nodoLlegada)
             {
                 nodoLlegada =  ThreadLocalRandom.current().nextInt(0, nodes);
             }
 
+            // añadimos la arista con un peso random entre 0 y 1
             sasha.addEdge(nodoInicio, nodoLlegada, Math.random());
         }
 

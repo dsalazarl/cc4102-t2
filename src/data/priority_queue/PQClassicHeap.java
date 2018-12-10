@@ -124,6 +124,10 @@ public class PQClassicHeap implements PriorityQueue {
     {
         // donde esta el nodo afectado en nuestro heap
         int i = this.posNode.get(key);
+        if (i == -1)
+        {
+            return;
+        }
         // mientras no soy la raiz y el padre es mayor  que el hijo
         // los tengo que intercambiar
         Pair<Integer, Double> newNode = new Pair<>(this.minHeap.get(i).getFirst(), priority);

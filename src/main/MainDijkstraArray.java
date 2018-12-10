@@ -11,12 +11,24 @@ import java.util.ArrayList;
  * mediante implementación con Array.
  */
 public class MainDijkstraArray {
+
+    // metodo para ver cuanto se demora el dijkstra con el array
+    // dadas las edges
+    public static void dijkstraEdges(int edges)
+    {
+        Graph testeroide = GraphGenerator.nGraph(100000, edges);
+
+        long startTime = System.currentTimeMillis();
+        DijkstraArray hola = new DijkstraArray(testeroide);
+        ArrayList<Double> resultados = hola.shortestPath(0);
+        long stopTime = System.currentTimeMillis();
+
+        long elapsedTime = stopTime - startTime;
+        System.out.println("Se tardó: "+elapsedTime + " milisegundos");
+    }
+
     public static void main(String[] args)
     {
-        Graph grafoide = GraphGenerator.nGraph(4, 4);
-        grafoide.printGraph();
-        DijkstraArray hola = new DijkstraArray(grafoide);
-        ArrayList<Double> resultados = hola.shortestPath(0);
-        System.out.println(resultados.get(3));
+
     }
 }

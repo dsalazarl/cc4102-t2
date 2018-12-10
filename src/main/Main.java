@@ -12,6 +12,8 @@ public class Main {
     {
         Graph hola = GraphGenerator.nGraph(3, 10);
         hola.printGraph();
+
+
     }
 
 }
