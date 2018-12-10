@@ -6,7 +6,7 @@ import org.w3c.dom.Node;
 
 import java.util.ArrayList;
 
-public class PQFibonacciHeap2 {
+public class PQFibonacciHeapOOP {
 
     public static int MAXDEGREE = 5;
     private ArrayList<NodeHeaps> rootList;
@@ -15,7 +15,7 @@ public class PQFibonacciHeap2 {
     private int nodesAmount;
 
 
-    public PQFibonacciHeap2(){
+    public PQFibonacciHeapOOP(){
         rootList = new ArrayList<>();
         allNodes = new ArrayList<>();
         minNode = null;

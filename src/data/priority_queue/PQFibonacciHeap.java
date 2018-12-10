@@ -4,9 +4,6 @@ import data.NodeHeaps;
 import data.graph.Pair;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import data.priority_queue.PQFibonacciHeap2;
-import org.w3c.dom.Node;
 
 /**
  * Clase para representar una cola de prioridad implementada mediante un heap de Fibonacci.
@@ -27,7 +24,7 @@ public class PQFibonacciHeap implements PriorityQueue {
     // Tamaño real del heap para evitar sacar basura
     private int heapSize;
 
-    private PQFibonacciHeap2 pqFibonacci;
+    private PQFibonacciHeapOOP pqFibonacci;
 
     /**
      * Constructor para setear valores iniciales, sin construir fibonacci heap
@@ -38,7 +35,7 @@ public class PQFibonacciHeap implements PriorityQueue {
         this.heapSize = n;
         this.posNode = new ArrayList<>();
         this.minHeap = new ArrayList<>();
-        this.pqFibonacci = new PQFibonacciHeap2();
+        this.pqFibonacci = new PQFibonacciHeapOOP();
     }
 
     public PQFibonacciHeap(ArrayList priorities) {
