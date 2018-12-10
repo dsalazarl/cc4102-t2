@@ -2,6 +2,8 @@ package data.priority_queue;
 
 import data.graph.Pair;
 
+import java.util.ArrayList;
+
 /**
  * Operaciones propias de una cola de prioridad.
  * Se utilizará esta interface para realizar polimorfismo al implementar el algoritmo de Dijkstra.
@@ -54,4 +56,11 @@ public interface PriorityQueue {
      * Con fines de debugging.
      */
     void printProp();
+
+    /**
+     * Crea el heap a partir de una lista de prioridades.
+     * @param priorities lista de prioridades a partir de la cual se construirá el heap.
+     * @return el objeto cola de prioridad.
+     */
+    PriorityQueue makeHeap(ArrayList<Double> priorities);
 }

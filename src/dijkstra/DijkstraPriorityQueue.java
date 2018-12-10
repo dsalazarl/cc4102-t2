@@ -29,9 +29,8 @@ public class DijkstraPriorityQueue extends AbstractDijkstra {
         // Setear a 0 el valor del vértice especificado como origen
         dist.set(s, 0.0d);
 
-        // Construir el heap de la cola de prioridad a partir del arreglo de distancias
-        this.pq = new PQClassicHeap(dist);
-
+        // Reconstruir el heap de la cola de prioridad a partir del arreglo de distancias
+        this.pq = this.pq.makeHeap(dist);
 
         while (!pq.isEmpty())
         {

@@ -2,6 +2,8 @@ package data.priority_queue;
 
 import data.graph.Pair;
 
+import java.util.ArrayList;
+
 /**
  * Clase para representar una cola de prioridad implementada mediante un heap de Fibonacci.
  */
@@ -73,5 +75,16 @@ public class PQFibonacciHeap implements PriorityQueue {
 
     public void printProp(){
 
+    }
+
+    /**
+     * Crea el heap a partir de una lista de prioridades.
+     *
+     * @param priorities lista de prioridades a partir de la cual se construirá el heap.
+     * @return el objeto cola de prioridad.
+     */
+    @Override
+    public PriorityQueue makeHeap(ArrayList<Double> priorities) {
+        return null;
     }
 }

@@ -57,6 +57,8 @@ public class PQClassicHeap implements PriorityQueue {
     }
 
 
+
+
     // Constructor dado n nodos,
     // Setea todas sus distancias en infinito
     // menos la del nodo '0' en 0
@@ -217,6 +219,17 @@ public class PQClassicHeap implements PriorityQueue {
     {
         System.out.println("Largo minheap: " + this.minHeap.size());
         System.out.println("Largo heapsize: " + this.heapSize);
+    }
+
+    /**
+     * Crea el heap a partir de una lista de prioridades.     *
+     * @param priorities lista de prioridades a partir de la cual se construirá el heap.
+     * @return el objeto cola de prioridad.
+     */
+    @Override
+    public PriorityQueue makeHeap(ArrayList<Double> priorities)
+    {
+        return new PQClassicHeap(priorities);
     }
 
     /**
