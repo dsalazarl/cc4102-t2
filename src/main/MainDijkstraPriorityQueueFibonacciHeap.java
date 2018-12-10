@@ -16,8 +16,9 @@ public class MainDijkstraPriorityQueueFibonacciHeap {
         // Polimorfismo sobre PriorityQueue
         Graph dummyGraph = new Graph();
         PriorityQueue queue = new PQFibonacciHeap(dummyGraph.nodesNum());
-        System.out.println(queue.getClass().toString());
         DijkstraPriorityQueue dpq = new DijkstraPriorityQueue(dummyGraph, queue);
         ArrayList<Double> minDists = dpq.shortestPath(0, queue.getClass());
+        for(int i=0; i < minDists.size(); i++)
+            System.out.println("Distancia mínima entre el nodo 0 y el nodo " + i + " es: " + minDists.get(i));
     }
 }
