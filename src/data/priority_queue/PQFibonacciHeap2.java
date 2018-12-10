@@ -52,6 +52,7 @@ public class PQFibonacciHeap2 {
     public NodeHeaps searchNode(int id){
         return allNodes.get(id);
     }
+
     public NodeHeaps extractMin(){
         //busco el minimo
         NodeHeaps minNode = getMinNode();
@@ -167,8 +168,6 @@ public class PQFibonacciHeap2 {
         x.setMarkeD(false);
     }
 
-    /*TODO: Complete
-     */
     public void CascadingCut(NodeHeaps y){
         NodeHeaps z = y.getParent();
         if (z != null){

@@ -73,6 +73,7 @@ public class PQFibonacciHeap implements PriorityQueue {
             return new Pair<>(0, 0.0);
         }
         else{
+            heapSize--;
             return minNode.nodeToPair();
         }
     }
