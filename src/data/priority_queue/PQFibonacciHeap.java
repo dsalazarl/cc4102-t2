@@ -1,5 +1,6 @@
 package data.priority_queue;
 
+import data.NodeHeaps;
 import data.graph.Pair;
 
 import java.util.ArrayList;
@@ -9,15 +10,101 @@ import java.util.ArrayList;
  */
 public class PQFibonacciHeap implements PriorityQueue {
 
-    public PQFibonacciHeap()
-    {
-        super();
+
+    // Este sera nuestra cola de prioridad
+    // una lista de pares con el primer atributo el id del nodo y segundo la distancia
+    private ArrayList<Pair<Integer, Double>> minHeap;
+
+    // Tambien necesitare a priori esta cosita para guardar la posicion de cada nodo
+    // en la cola de prioridad, para asi saber donde actualizar la prioridad en el heap
+
+    //el posNode[i] guarda la posicion en el heap del nodo 'i'
+    private ArrayList<Integer> posNode;
+
+    // Tamaño real del heap para evitar sacar basura
+    private int heapSize;
+
+    private PQFibonacciHeapOOP pqFibonacci;
+
+    /**
+     * Constructor para setear valores iniciales, sin construir fibonacci heap
+     *
+     * @param n tamaño de arreglo de prioridades
+     */
+    public PQFibonacciHeap(int n) {
+        this.heapSize = n;
+        this.posNode = new ArrayList<>();
+        this.minHeap = new ArrayList<>();
+        this.pqFibonacci = new PQFibonacciHeapOOP();
     }
 
-    public PQFibonacciHeap(int n)
-    {
-        this();
+    public PQFibonacciHeap(ArrayList priorities) {
+        this(priorities.size());
+        for (int i = 0; i < this.heapSize; i++)
+        {
+            NodeHeaps newNode = new NodeHeaps(i, (double) priorities.get(i));
+            pqFibonacci.insertNode(newNode);
+
+        }
+
     }
+
+
+    // devuelve el mayor valor de la cola de prioridad, el nodo y su distancia como par
+    public Pair<Integer, Double> heapMin()
+    {
+        return pqFibonacci.getMinNode().nodeToPair();
+    }
+
+
+    /**
+     * Sacar de la cola el nodo que tiene mayor prioridad.
+     *
+     * @return la llave del nodo con mayor prioridad en la cola.
+     */
+    @Override
+    public Pair<Integer, Double> extractMin() {
+        // el minimo
+        NodeHeaps minNode = pqFibonacci.extractMin();
+        if (minNode == null){
+            return new Pair<>(0, 0.0);
+        }
+        else{
+            heapSize--;
+            return minNode.nodeToPair();
+        }
+    }
+
+
+    /**
+     * Actualiza la distancia para la llave.
+     *
+     * @param key      llave del elemento al que se le quiere cambiar la prioridad. En este caso hará referencia al vértice.
+     * @param priority valor de la prioridad a la cual se quiere bajar el valor de la llave.
+     */
+    @Override
+    public void decreaseKey(int key, double priority) {
+        NodeHeaps actualNode = pqFibonacci.searchNode(key);
+        pqFibonacci.decreaseKey(actualNode, key);
+    }
+
+
+    public void printProp() {
+        System.out.println("Largo minheap: " + this.minHeap.size());
+        System.out.println("Largo heapsize: " + this.heapSize);
+    }
+
+    /**
+     * Crea el heap a partir de una lista de prioridades.
+     *
+     * @param priorities lista de prioridades a partir de la cual se construirá el heap.
+     * @return el objeto cola de prioridad.
+     */
+    @Override
+    public PriorityQueue makeHeap(ArrayList<Double> priorities) {
+        return new PQFibonacciHeap(priorities);
+    }
+
     /**
      * Revisar si la cola está vacía.
      *
@@ -25,7 +112,7 @@ public class PQFibonacciHeap implements PriorityQueue {
      */
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.heapSize == 0;
     }
 
     /**
@@ -51,16 +138,6 @@ public class PQFibonacciHeap implements PriorityQueue {
     }
 
     /**
-     * Sacar de la cola el nodo que tiene mayor prioridad.
-     *
-     * @return la llave del nodo con mayor prioridad en la cola.
-     */
-    @Override
-    public Pair<Integer, Double> extractMin() {
-        return null;
-    }
-
-    /**
      * Busca un elemento y si lo encuentra, actualiza el valor de su prioridad dentro de la cola.
      *
      * @param k     la llave del elemento a actualizar
@@ -72,29 +149,4 @@ public class PQFibonacciHeap implements PriorityQueue {
         return false;
     }
 
-    /**
-     * Actualiza la distancia para la llave.
-     *
-     * @param key      llave del elemento al que se le quiere cambiar la prioridad. En este caso hará referencia al vértice.
-     * @param priority valor de la prioridad a la cual se quiere bajar el valor de la llave.
-     */
-    @Override
-    public void decreaseKey(int key, double priority) {
-
-    }
-
-    public void printProp(){
-
-    }
-
-    /**
-     * Crea el heap a partir de una lista de prioridades.
-     *
-     * @param priorities lista de prioridades a partir de la cual se construirá el heap.
-     * @return el objeto cola de prioridad.
-     */
-    @Override
-    public PriorityQueue makeHeap(ArrayList<Double> priorities) {
-        return null;
-    }
 }

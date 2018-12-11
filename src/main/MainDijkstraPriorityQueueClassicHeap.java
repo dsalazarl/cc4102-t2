@@ -28,7 +28,7 @@ public class MainDijkstraPriorityQueueClassicHeap {
         long stopTime = System.currentTimeMillis();
 
         long elapsedTime = stopTime - startTime;
-        System.out.println("Se tardó: "+elapsedTime + " milisegundos");
+        System.out.println("Se tardó: " + elapsedTime + " milisegundos");
 
     }
 
