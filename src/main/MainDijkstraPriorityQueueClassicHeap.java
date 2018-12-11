@@ -4,7 +4,6 @@ import data.graph.Graph;
 import data.graph.GraphGenerator;
 import data.priority_queue.PQClassicHeap;
 import data.priority_queue.PriorityQueue;
-import dijkstra.DijkstraArray;
 import dijkstra.DijkstraPriorityQueue;
 
 import java.util.ArrayList;
@@ -19,11 +18,12 @@ public class MainDijkstraPriorityQueueClassicHeap {
 
     public static void dijkstraEdgesPQ(int edges)
     {
-        Graph grafiroide = GraphGenerator.nGraph(100000, edges);
+        Graph graph = GraphGenerator.nGraph(100000, edges);
 
         long startTime = System.currentTimeMillis();
-        PriorityQueue queue = new PQClassicHeap(grafiroide.nodesNum());
-        DijkstraPriorityQueue dpq = new DijkstraPriorityQueue(grafiroide, queue);
+        // Polimorfismo sobre PriorityQueue
+        PriorityQueue classicHeap = new PQClassicHeap(graph.nodesNum());
+        DijkstraPriorityQueue dpq = new DijkstraPriorityQueue(graph, classicHeap);
         ArrayList<Double> minDists = dpq.shortestPath(0);
         long stopTime = System.currentTimeMillis();
 
@@ -32,7 +32,6 @@ public class MainDijkstraPriorityQueueClassicHeap {
 
     }
 
-    // Test
     public static void dummyDijkstraTest()
     {
         Graph grafoide = GraphGenerator.testGraph2();
@@ -46,6 +45,8 @@ public class MainDijkstraPriorityQueueClassicHeap {
 
     public static void main(String[] args)
     {
-        dijkstraEdgesPQ(10000000);
+        int nodesNum = 100000;
+        int edgesNum = nodesNum * 1000;
+        dijkstraEdgesPQ(edgesNum);
     }
 }

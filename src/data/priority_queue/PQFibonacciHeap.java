@@ -8,6 +8,16 @@ import java.util.ArrayList;
  * Clase para representar una cola de prioridad implementada mediante un heap de Fibonacci.
  */
 public class PQFibonacciHeap implements PriorityQueue {
+
+    public PQFibonacciHeap()
+    {
+        super();
+    }
+
+    public PQFibonacciHeap(int n)
+    {
+        this();
+    }
     /**
      * Revisar si la cola está vacía.
      *
